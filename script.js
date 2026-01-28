@@ -77,28 +77,3 @@ submitButton.addEventListener("click", () => {
   form.style.visibility = "hidden";
   loadBooks();
 });
-
-function testValues() {
-  addBookToLibrary("The Lord of the Rings", "JRR Tolkien", 1000, false);
-  addBookToLibrary(
-    "Practical Statistics for Data Scientists",
-    "Winston Chang",
-    400,
-    true,
-  );
-  addBookToLibrary(
-    "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow",
-    "Aurélien Géron",
-    600,
-    false,
-  );
-  addBookToLibrary(
-    "Designing Machine Learning Systems: An Iterative Process for Production-Ready Applications",
-    "Chip Huyen",
-    386,
-    false,
-  );
-  loadBooks();
-}
-
-testValues();
