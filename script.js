@@ -102,4 +102,3 @@ function testValues() {
 }
 
 testValues();
-testValues();

@@ -29,20 +29,19 @@ body {
   font-family: sans-serif;
   background-color: var(--color-black-100);
   color: var(--color-white-100);
-  /* padding: 1em; */
 }
 
 /* grid styles */
 body {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-rows: 8rem minmax(0, 1fr) 5rem;
   grid-template-areas:
     "header"
     "main"
     "footer";
   gap: 1em;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 header {
@@ -54,16 +53,18 @@ header {
 
 main {
   grid-area: main;
+  overflow-y: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(230px, 280px));
+  /* grid-auto-rows: minmax(230px, auto); */
   gap: 1rem;
 }
 
 main .book-card {
   background-color: var(--color-black-200);
   border-radius: 1rem;
-  padding: 1.5rem;
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
 }
@@ -103,6 +104,8 @@ header > #addBook {
   background-color: var(--color-purple-100);
   border-radius: 0.5rem;
   border: none;
+  height: 3rem;
+  align-self: center;
 }
 
 main {
@@ -111,7 +114,9 @@ main {
 
 .book-card > h3 {
   margin-top: 1rem;
-  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  max-height: 3em;
+  text-overflow: ellipsis;
 }
 
 .book-card > p {
@@ -130,24 +135,26 @@ main {
   border: none;
   border-radius: 0.5rem;
   color: var(--color-white-100);
-  padding: 0.8rem 2rem;
-  /* width: clamp(150px, 20%, 300px); */
-  margin: auto auto 0 auto;
+  padding: 1rem 2rem;
+  width: clamp(150px, 20%, 300px);
+  margin-top: auto;
+  margin-bottom: 1rem;
+  align-self: center;
 }
 
 footer {
-  display: flex;
   align-content: center;
-  justify-content: center;
   background-color: #333;
 }
 
 footer > p {
-  margin: auto;
+  display: flex;
+  align-self: center;
+  justify-content: center;
 }
 /* end element styles */
 
-/* modal */
+/* modal styles */
 form {
   display: flex;
   flex-direction: column;
@@ -167,7 +174,6 @@ form {
 form > p {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: repeat(auto-fill, 1fr);
   gap: 1rem;
 }
 
@@ -186,7 +192,10 @@ form #submit {
   border-radius: 0.5rem;
   color: var(--color-white-100);
   padding: 0.8rem 2rem;
-  margin: auto auto 0 auto;
+  width: clamp(150px, 20%, 300px);
+  margin-top: auto;
+  align-self: center;
+  justify-self: flex-end;
 }
 
 form #cancel {
