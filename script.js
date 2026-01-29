@@ -32,13 +32,30 @@ function loadBooks() {
   myLibrary.forEach((book) => {
     const bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = book.isRead;
+    checkbox.addEventListener("change", () => {
+      book.isRead = checkbox.checked;
+      console.log(`${book.title} read status: ${book.isRead}, ${book.id}`);
+    });
+
+    const statusText = document.createElement("span");
+    statusText.classList.add("status-text");
+    checkbox.classList.toggle("is-read", book.isRead);
+
     bookCard.innerHTML = `
-    <h3>${book.title}</h3>
-    <p><span>Author:</span> ${book.author}</p>
-    <p><span>Pages:</span> ${book.nPages} pages</p>
-    <p><span>Read:</span> ${book.read()}</p>
-    <button type="button" id="remove">Remove</button>
-  `;
+      <h3>${book.title}</h3>
+      <p><span>Author:</span> ${book.author}</p>
+      <p><span>Pages:</span> ${book.nPages}</p>
+      <p><span>Read:</span> </p>
+    `;
+
+    const checkboxLabel = document.createElement("label");
+    checkboxLabel.appendChild(checkbox);
+    checkboxLabel.appendChild(statusText);
+
+    bookCard.querySelector("p:last-of-type").appendChild(checkboxLabel);
     main.appendChild(bookCard);
   });
 }

@@ -11,6 +11,8 @@
   --color-yellow-200: goldenrod;
   --color-blue-100: cornflowerblue;
   --color-purple-100: #bd9dff;
+  --color-pale-red: #aa5454;
+  --color-pale-green: #60af60;
   --font-monospace-default:
     ui-monospace, SFMono-Regular, "Cascadia Mono", "Roboto Mono",
     "DejaVu Sans Mono", "Liberation Mono", Menlo, Monaco, "Consolas",
@@ -213,3 +215,21 @@ form #isRead {
   width: fit-content;
   margin-left: 40%;
 }
+
+/* end modal styles */
+
+/* checkbox styles */
+.status-text {
+  margin-left: 1rem;
+}
+
+.status-text::after {
+  content: "Not read";
+  color: var(--color-pale-red);
+}
+
+input.is-read + .status-text::after {
+  content: "Read";
+  color: var(--color-pale-green);
+}
+/* end checkbox styles */
